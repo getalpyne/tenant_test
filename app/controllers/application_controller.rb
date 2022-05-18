@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     # set to Account.first for now, you'll change this later
 
     if params[:action] == "switch"
-      new_company = Company.where(name: params[:order])
+      new_company = Company.where(name: params[:new_company])
       set_current_tenant(new_company)
       session[:current_company] = new_company.first[:id]
       redirect_to controller: 'companies', action: 'show', id: new_company.first[:id]
